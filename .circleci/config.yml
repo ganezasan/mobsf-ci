@@ -25,7 +25,7 @@ jobs:
     - run:
         name: MobSF
         command: |
-          TARGET_PATH='/app/target/app-release.apk' docker-compose up --build --exit-code-from scan
+          TARGET_PATH='/app/app-release.apk' docker-compose up --build --exit-code-from scan
 workflows:
   version: 2
   workflow:

@@ -8,6 +8,7 @@ RUN bundle && apk add --update bash
 
 COPY . .
 
+RUN mkdir /app/output
 RUN ls -la /app/
 
 CMD ./wait-for-it.sh mobsf:8000 -- ruby scan.rb
