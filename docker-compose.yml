@@ -7,7 +7,7 @@ services:
       - MOBSF_API_KEY=12345
     ports:
       - 8000:8000
-  
+
   scan:
     build:
       context: ./scan
@@ -16,8 +16,7 @@ services:
       - TARGET_PATH=${TARGET_PATH}
 
     volumes:
-      - "$PWD/output:/app/output"
-      - "$PWD/target:/app/target"
+      - ".:/app/target"
 
     depends_on:
       - mobsf
