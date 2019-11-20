@@ -26,6 +26,15 @@ jobs:
         name: MobSF
         command: |
           TARGET_PATH='/app/app-release.apk' docker-compose up --build --exit-code-from scan
+    - run:
+        name: copy output from the code_scan container
+        command: |
+          CONTAINER_ID=$(docker ps -a -f name=code_scan --format "{{.ID}}")
+          docker cp $CONTAINER_ID:/app/output .
+    - store_artifacts:
+        path: ./output
+        destination: output
+
 workflows:
   version: 2
   workflow:
